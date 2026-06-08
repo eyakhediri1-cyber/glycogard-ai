@@ -51,3 +51,35 @@ docker-compose up -d
 | Backend  | http://localhost:5000/api  |
 
 **Demo Account**
+Email:    demo@glycoguard.com
+Password: password123
+
+
+---
+
+## 🔐 Security Highlights
+
+- JWT authentication
+- Bcrypt password hashing
+- Protected API routes
+- Input validation & sanitization
+
+---
+
+## 🎯 Impact
+
+GlycoGuard demonstrates:
+
+- Full-stack engineering capability
+- AI integration in a real-world healthcare use case
+- Data-driven product thinking
+- Clean, scalable architecture design
+
+---
+
+## 🔮 Future Work
+
+- 📱 Mobile app (React Native)
+- 🔌 IoT glucose device integration
+- 🧠 Predictive AI models
+- 👨‍⚕️ Caregiver / doctor dashboards
