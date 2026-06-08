@@ -1,0 +1,57 @@
+.glucose-badge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.glucose-value-group {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.glucose-value {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.glucose-unit {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.glucose-trend {
+  font-size: 24px;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.glucose-status-label {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Status colors for trends */
+.rising, .rising_fast { color: var(--color-high); }
+.falling, .falling_fast { color: var(--color-hypo); }
+.stable { color: var(--color-in-range); }
+
+/* Animation for the live feel */
+.status-normal .glucose-value {
+  color: var(--color-in-range);
+}
+.status-hypo .glucose-value {
+  color: var(--color-hypo);
+}
+.status-hyper .glucose-value {
+  color: var(--color-hyper);
+}

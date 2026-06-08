@@ -1,0 +1,122 @@
+.meds-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.meds-header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.meds-header p {
+  color: var(--color-text-secondary);
+}
+
+.meds-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .meds-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FORM */
+.meds-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.meds-form .checkbox-group {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.meds-form .checkbox-group label {
+  text-transform: none;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.btn-add-med {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 8px;
+}
+
+.btn-add-med:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+/* LIST */
+.meds-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.med-item {
+  background: var(--color-bg);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid rgba(0,0,0,0.03);
+  position: relative;
+}
+
+.med-item.insulin {
+  border-left: 6px solid var(--color-hypo);
+}
+
+.med-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.med-item .dosage {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.insulin-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--color-hypo-bg);
+  color: var(--color-hypo);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.renewal-info {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px dashed #DDD;
+}

@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: glycoguard_db
+    environment:
+      POSTGRES_DB: glycoguard_db
+      POSTGRES_USER: glycoguard
+      POSTGRES_PASSWORD: glycoguard123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U glycoguard"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: glycoguard_backend
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: postgresql://glycoguard:glycoguard123@db:5432/glycoguard_db
+      JWT_SECRET: your_super_secret_jwt_key_change_in_production
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      NODE_ENV: production
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: glycoguard
+      DB_PASSWORD: glycoguard123
+      DB_NAME: glycoguard_db
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend/src:/app/src
+    command: npm run dev
+
+  frontend:
+    build: ./frontend
+    container_name: glycoguard_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://192.168.1.22:5000/api
+    depends_on:
+      - backend
+    command: npm start
+
+volumes:
+  postgres_data:
+
+networks:
+  default:
+    name: glycoguard_network
